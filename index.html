@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>لغات البرمجة</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: transparent;
+      font-family: Arial, sans-serif;
+      direction: rtl;
+      pointer-events: none; /* يمنع التفاعل مع كل العناصر افتراضياً */
+    }
+
+    .container {
+      text-align: center;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: auto; /* السماح بالتفاعل مع العناصر داخل القائمة فقط */
+    }
+
+    .python-logo {
+      width: 100px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .python-logo:hover {
+      transform: scale(1.1);
+    }
+
+    .menu {
+      display: none;
+      position: absolute;
+      top: 120px;
+      background-color: rgba(255, 255, 255, 0.95);
+      border: 1px solid #ccc;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      z-index: 999;
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .menu-item img {
+      width: 40px;
+      margin-left: 10px;
+    }
+
+    .menu-item span {
+      flex-grow: 1;
+      text-align: right;
+      margin-right: 20px;
+    }
+
+    .menu-item button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      padding: 5px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .menu-item button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body onclick="hideMenu(event)">
+  <div class="container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" class="python-logo" onclick="toggleMenu(event)">
+    
+    <div class="menu" id="menu">
+      <!-- Java -->
+      <div class="menu-item">
+        <img src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg" alt="Java">
+        <span>جافا</span>
+        <button onclick="window.open('https://www.java.com')">اذهب</button>
+      </div>
+      <!-- JavaScript -->
+      <div class="menu-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript">
+        <span>جافاسكربت</span>
+        <button onclick="window.open('https://developer.mozilla.org/en-US/docs/Web/JavaScript')">اذهب</button>
+      </div>
+      <!-- C++ -->
+      <div class="menu-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" alt="C++">
+        <span>C++</span>
+        <button onclick="window.open('https://cplusplus.com')">اذهب</button>
+      </div>
+      <!-- Ruby -->
+      <div class="menu-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Ruby_logo.svg" alt="Ruby">
+        <span>روبي</span>
+        <button onclick="window.open('https://www.ruby-lang.org')">اذهب</button>
+      </div>
+      <!-- Go -->
+      <div class="menu-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Go_Logo_Blue.svg" alt="Go">
+        <span>Go</span>
+        <button onclick="window.open('https://golang.org')">اذهب</button>
+      </div>
+      <!-- HTML -->
+      <div class="menu-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML">
+        <span>HTML</span>
+        <button onclick="window.open('https://developer.mozilla.org/en-US/docs/Web/HTML')">اذهب</button>
+      </div>
+      <!-- CSS -->
+      <div class="menu-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" alt="CSS">
+        <span>CSS</span>
+        <button onclick="window.open('https://developer.mozilla.org/en-US/docs/Web/CSS')">اذهب</button>
+      </div>
+      <!-- Kotlin -->
+      <div class="menu-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/Kotlin_Icon.png" alt="Kotlin">
+        <span>Kotlin</span>
+        <button onclick="window.open('https://kotlinlang.org')">اذهب</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu(event) {
+      event.stopPropagation();
+      const menu = document.getElementById("menu");
+      menu.style.display = (menu.style.display === "block") ? "none" : "block";
+    }
+
+    function hideMenu(event) {
+      const menu = document.getElementById("menu");
+      if (!event.target.closest('.menu') && !event.target.classList.contains('python-logo')) {
+        menu.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>
